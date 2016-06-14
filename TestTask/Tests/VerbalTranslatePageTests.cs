@@ -32,7 +32,6 @@ namespace TestTask.Tests
         {
                 TestName = "Проверка, что можно выбрать элемент с value 1";
                 currentPage.SelectTypeOrganizationOptionByVal("1");
-                //Sleep(1);
                 Assert.AreEqual("деловые переговоры", currentPage.GetTypeOrganizationAsSE().SelectedOption.Text);
         }
         

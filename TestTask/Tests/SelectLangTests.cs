@@ -45,7 +45,6 @@ namespace TestTask.Tests
         {
             TestName = "Проверка на выбор языка с которого переводим";
             string selectedText = page.SelectFromLangOption(text);
-            //Sleep(1);
             Assert.AreEqual(selectedText, page.GetFromLangAsSE().SelectedOption.Text);
         }
 
@@ -54,7 +53,6 @@ namespace TestTask.Tests
         {
             TestName = "Проверка на выбор языка на который переводим";
             string selectedText = page.SelectToLangOption(text);
-            //Sleep(1);
             Assert.AreEqual(selectedText, page.GetFromLangAsSE().SelectedOption.Text);
 
         }

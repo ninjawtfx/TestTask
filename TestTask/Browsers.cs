@@ -27,10 +27,6 @@ namespace TestTask
                 case "ie":
                     Driver = new InternetExplorerDriver();
                     break;
-                default :
-                    Driver = new ChromeDriver();
-                    break;
-
         };}
     }
 }
