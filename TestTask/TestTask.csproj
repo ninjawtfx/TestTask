@@ -62,6 +62,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Helpers.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\CalculatorPage.cs" />
     <Compile Include="Pages\Header.cs" />
