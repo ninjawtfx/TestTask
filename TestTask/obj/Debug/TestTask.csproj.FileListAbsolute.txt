@@ -1,0 +1,13 @@
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\TestTask.dll
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\TestTask.pdb
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\nunit.framework.dll
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\WebDriver.dll
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\WebDriver.Support.dll
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\nunit.framework.xml
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\WebDriver.pdb
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\WebDriver.xml
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\WebDriver.Support.pdb
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Debug\WebDriver.Support.xml
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\obj\Debug\TestTask.dll
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\obj\Debug\TestTask.pdb
+c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\obj\Debug\TestTask.csprojResolveAssemblyReference.cache
