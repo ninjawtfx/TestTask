@@ -14,9 +14,8 @@ namespace TestTask
     {
         public static IWebDriver Driver;
         public static void Init()
-        { 
-            
-            switch(ConfigurationManager.AppSettings["browser"])
+        {
+            switch (ConfigurationManager.AppSettings["browser"])
             {
                 case "firefox":
                     Driver = new FirefoxDriver();
@@ -27,6 +26,10 @@ namespace TestTask
                 case "ie":
                     Driver = new InternetExplorerDriver();
                     break;
-        };}
+                default :
+                    Driver = new ChromeDriver();
+                    break;
+            };
+        }
     }
 }

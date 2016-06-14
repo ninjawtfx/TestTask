@@ -14,16 +14,16 @@ namespace TestTask.Pages
     {
 
         public VerbalTranslatePage(IWebDriver browser)
-            :base(browser)
+            : base(browser)
         {
-            this.driver = browser;
-            url = "http://abbyy-ls.ru/interpreting_offer";
+            this._driver = browser;
+            _url = "http://abbyy-ls.ru/interpreting_offer";
         }
 
         public override void Navigate()
         {
-            driver.Navigate().GoToUrl(url);
-            PageFactory.InitElements(driver, this);
+            _driver.Navigate().GoToUrl(_url);
+            PageFactory.InitElements(_driver, this);
         }
 
         [FindsBy(How = How.Id, Using = "edit-submitted-event-type")]
@@ -46,6 +46,6 @@ namespace TestTask.Pages
             return new SelectElement(SelectTypeOrganization);
         }
 
-        
+
     }
 }

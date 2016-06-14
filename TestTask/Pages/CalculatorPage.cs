@@ -13,18 +13,16 @@ namespace TestTask.Pages
     public class CalculatorPage : BasePage
     {
         public CalculatorPage(IWebDriver browser)
-            :base(browser)
+            : base(browser)
         {
-            this.driver = browser;
-
-            url = "http://abbyy-ls.ru/doc-calculator";
-
+            this._driver = browser;
+            _url = "http://abbyy-ls.ru/doc-calculator";
         }
 
         public override void Navigate()
         {
-            driver.Navigate().GoToUrl(url);
-            PageFactory.InitElements(driver, this);
+            _driver.Navigate().GoToUrl(_url);
+            PageFactory.InitElements(_driver, this);
         }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"calculator\"]/form/div[2]/div[1]/div[2]/fieldset/div[2]/select[1]")]

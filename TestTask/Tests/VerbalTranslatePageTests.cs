@@ -11,30 +11,30 @@ namespace TestTask.Tests
     [TestFixture]
     public class VerbalTranslatePageTests : TestBase
     {
-        private VerbalTranslatePage currentPage;
+        private VerbalTranslatePage _currentPage;
 
         [SetUp]
         public void InitBefore()
         {
-            currentPage = new VerbalTranslatePage(Driver);
-            currentPage.Navigate();
+            _currentPage = new VerbalTranslatePage(_driver);
+            _currentPage.Navigate();
         }
 
         [Test]
         public void TypeOrgListNotEmptyTest()
         {
-                TestName = "Проверка, что лист с типом мероприятий не пустой";
-                Assert.IsTrue(currentPage.CheckSelectTypeOrganizationEmpty());
+            _testName = "Проверка, что лист с типом мероприятий не пустой";
+            Assert.IsTrue(_currentPage.CheckSelectTypeOrganizationEmpty());
         }
 
         [Test]
         public void TypeOrgListCanSelectElemTest()
         {
-                TestName = "Проверка, что можно выбрать элемент с value 1";
-                currentPage.SelectTypeOrganizationOptionByVal("1");
-                Assert.AreEqual("деловые переговоры", currentPage.GetTypeOrganizationAsSE().SelectedOption.Text);
+            _testName = "Проверка, что можно выбрать элемент с value 1";
+            _currentPage.SelectTypeOrganizationOptionByVal("1");
+            Assert.AreEqual("деловые переговоры", _currentPage.GetTypeOrganizationAsSE().SelectedOption.Text);
         }
-        
+
 
     }
 

@@ -22,28 +22,28 @@ namespace TestTask.Tests
         [SetUp]
         public void InitBefore()
         {
-            page = new CalculatorPage(Driver);
+            page = new CalculatorPage(_driver);
             page.Navigate();
         }
 
         [Test]
         public void EmptySelectFromLangTest()
         {
-            TestName = "Проверка на пустой список с языка перевода";
+            _testName = "Проверка на пустой список с языка перевода";
             Assert.IsTrue(page.CheckFromLangSelectorEmpty());
         }
 
         [Test]
         public void EmptySelectToLangTest()
         {
-            TestName = "Проверка на пустой список с языка на который переводить";
+            _testName = "Проверка на пустой список с языка на который переводить";
             Assert.IsTrue(page.CheckToLangSelectorEmpty());
         }
 
         [Test, TestCaseSource("fromLangTexts")]
         public void SelectFromLangTest(string text)
         {
-            TestName = "Проверка на выбор языка с которого переводим";
+            _testName = "Проверка на выбор языка с которого переводим";
             string selectedText = page.SelectFromLangOption(text);
             Assert.AreEqual(selectedText, page.GetFromLangAsSE().SelectedOption.Text);
         }
@@ -51,7 +51,7 @@ namespace TestTask.Tests
         [Test, TestCaseSource("toLangTexts")]
         public void SelectToLangTest(string text)
         {
-            TestName = "Проверка на выбор языка на который переводим";
+            _testName = "Проверка на выбор языка на который переводим";
             string selectedText = page.SelectToLangOption(text);
             Assert.AreEqual(selectedText, page.GetFromLangAsSE().SelectedOption.Text);
 

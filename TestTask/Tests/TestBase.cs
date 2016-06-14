@@ -20,27 +20,27 @@ namespace TestTask.Tests
     [TestFixture]
     public abstract class TestBase
     {
-        protected IWebDriver Driver;
+        protected IWebDriver _driver;
 
-        protected BasePage Page;
+        protected BasePage _page;
 
-        protected string TestName;
+        protected string _testName;
 
-        static protected List<BasePage> Pages = new List<BasePage>();
+        static protected List<BasePage> _pagesList = new List<BasePage>();
 
         [TestFixtureSetUp]
         public void Init()
         {
             Browsers.Init();
-            Driver = Browsers.Driver;
+            _driver = Browsers.Driver;
         }
 
         [TestFixtureTearDown]
         public void TearDown()
         {
-            if (Driver != null)
+            if (_driver != null)
             {
-                Driver.Quit();
+                _driver.Quit();
             }
         }
 
@@ -49,10 +49,10 @@ namespace TestTask.Tests
         {
             if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
             {
-                Screenshot scr = ((ITakesScreenshot)Driver).GetScreenshot();
+                Screenshot scr = ((ITakesScreenshot)_driver).GetScreenshot();
                 scr.SaveAsFile(string.Format(@"{0}/{1}.jpeg",
                    ConfigurationManager.AppSettings["pathToScreens"],
-                   TestName), ImageFormat.Jpeg);
+                   _testName), ImageFormat.Jpeg);
             }
         }
 

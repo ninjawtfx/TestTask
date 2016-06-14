@@ -3,31 +3,35 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
-using System.Threading;
 using OpenQA.Selenium.Support.UI;
 
 namespace TestTask.Pages
 {
     public abstract class BasePage
     {
-        protected IWebDriver driver;
-        protected string url;
-        protected WebDriverWait Wait;
+        //Наш главный драйвер, с которым работает страница
+        protected IWebDriver _driver;
+        //Наш адрес страницы
+        protected string _url;
+        //Объект для ожидания какого-либо эвента на странице
+        protected WebDriverWait _wait;
+        //Наш хэдер
         public Header HeaderPage;
 
         public abstract void Navigate();
 
         public BasePage(IWebDriver driver)
         {
-            this.driver = driver;
-            HeaderPage = new Header(this.driver);
+            this._driver = driver;
+            HeaderPage = new Header(this._driver);
         }
 
         public IWebDriver GetDriver()
         {
-            return driver;
+            return _driver;
         }
     }
 }

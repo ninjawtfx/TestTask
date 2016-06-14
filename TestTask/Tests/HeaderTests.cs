@@ -14,33 +14,33 @@ using NUnit.Framework.Interfaces;
 
 namespace TestTask.Tests
 {
-    [TestFixture, TestFixtureSource("TypesOfPages")]
-    public class HeaderTestqs
+    [TestFixture, TestFixtureSource("_typesOfPages")]
+    public class HeaderTests
     {
-        private BasePage currentPage;
+        private BasePage _currentPage;
 
         private IWebDriver _driver;
 
-        static public Type[] TypesOfPages = new Type[] {
+        static private Type[] _typesOfPages = new Type[] {
             Type.GetType("TestTask.Pages.HomePage"),
             Type.GetType("TestTask.Pages.CalculatorPage"),
             Type.GetType("TestTask.Pages.VerbalTranslatePage")
         };
 
-        public HeaderTestqs(Type page)
+        public HeaderTests(Type page)
         {
             Browsers.Init();
             _driver = Browsers.Driver;
 
-            currentPage = (BasePage)Activator.CreateInstance(page, _driver);
-            currentPage.Navigate();
+            _currentPage = (BasePage)Activator.CreateInstance(page, _driver);
+            _currentPage.Navigate();
         }
 
         [Test]
         public void PhoneDisplayTest()
         {
             //TestName = "Проверка отображения телефона";
-            Assert.IsTrue(currentPage.HeaderPage.PhoneBox.Displayed);
+            Assert.IsTrue(_currentPage.HeaderPage.PhoneBox.Displayed);
 
         }
 
@@ -48,7 +48,7 @@ namespace TestTask.Tests
         public void PhoneBoxHasTextTest()
         {
             //TestName = "Проверка того что телефон не пустой";
-            Assert.IsTrue(currentPage.HeaderPage.PhoneBox.Text != string.Empty);
+            Assert.IsTrue(_currentPage.HeaderPage.PhoneBox.Text != string.Empty);
 
         }
 
@@ -57,7 +57,7 @@ namespace TestTask.Tests
         {
 
             //TestName = "Проверка того что выбор языка отображается";
-            Assert.IsTrue(currentPage.HeaderPage.LanguaComboBox.Displayed);
+            Assert.IsTrue(_currentPage.HeaderPage.LanguaComboBox.Displayed);
 
         }
 
@@ -66,12 +66,12 @@ namespace TestTask.Tests
         {
 
             //TestName = "Проверка, что для выбора есть 4 элемента";
-            currentPage.HeaderPage.LanguaComboBox.Click();
+            _currentPage.HeaderPage.LanguaComboBox.Click();
 
-            Assert.IsTrue(currentPage.HeaderPage.FirstElemDropBox.Displayed
-                          && currentPage.HeaderPage.SecondElemDropBox.Displayed
-                          && currentPage.HeaderPage.ThirdElemDropBox.Displayed
-                          && currentPage.HeaderPage.FourthElemDropBox.Displayed);
+            Assert.IsTrue(_currentPage.HeaderPage.FirstElemDropBox.Displayed
+                          && _currentPage.HeaderPage.SecondElemDropBox.Displayed
+                          && _currentPage.HeaderPage.ThirdElemDropBox.Displayed
+                          && _currentPage.HeaderPage.FourthElemDropBox.Displayed);
 
         }
 

@@ -10,12 +10,13 @@ using OpenQA.Selenium.Support.UI;
 
 namespace TestTask.Pages
 {
-    public class Header 
+    public class Header
     {
-        private readonly IWebDriver driver;
+        //Наш драйвер, который мы получаем со страницы
+        private readonly IWebDriver _driver;
         public Header(IWebDriver driver)
         {
-            this.driver = driver;
+            this._driver = driver;
 
             PageFactory.InitElements(driver, this);
         }
@@ -44,8 +45,8 @@ namespace TestTask.Pages
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"block-block-21\"]/div/div/div[1]/span[2]/span")]
         public IWebElement SelectedLanguaText { get; set; }
-        
-        
+
+
     }
 }
 
