@@ -8,40 +8,34 @@ using OpenQA.Selenium.Support.UI;
 
 namespace TestTask.Tests
 {
-    [TestFixture, TestFixtureSource("Browsers")]
+    [TestFixture]
     public class VerbalTranslatePageTests : TestBase
     {
         private VerbalTranslatePage currentPage;
 
-        public VerbalTranslatePageTests(IWebDriver driver)
-            :base(driver)
+        [SetUp]
+        public void InitBefore()
         {
             currentPage = new VerbalTranslatePage(Driver);
+            currentPage.Navigate();
         }
 
         [Test]
         public void TypeOrgListNotEmptyTest()
         {
-            UITest(() =>
-            {
                 TestName = "Проверка, что лист с типом мероприятий не пустой";
-                Helpers.ValidateBoolTrue(Helpers.CheckListEmpty(currentPage.SelectTypeOrganization));
-            });
+                Assert.IsTrue(currentPage.CheckSelectTypeOrganizationEmpty());
         }
 
         [Test]
         public void TypeOrgListCanSelectElemTest()
         {
-            UITest(() =>
-            {
                 TestName = "Проверка, что можно выбрать элемент с value 1";
-                Helpers.SelectItemInListByValue(currentPage.SelectTypeOrganization, "1");
-
-                Helpers.Sleep(1);
-                Helpers.ValidateBoolTrue(Helpers.CheckOptionSelectedByValue(currentPage.SelectTypeOrganization, "1"));
-            });
+                currentPage.SelectTypeOrganizationOptionByVal("1");
+                //Sleep(1);
+                Assert.AreEqual("деловые переговоры", currentPage.GetTypeOrganizationAsSE().SelectedOption.Text);
         }
-
+        
 
     }
 

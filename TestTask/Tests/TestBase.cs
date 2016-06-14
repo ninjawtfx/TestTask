@@ -8,44 +8,55 @@ using System.Drawing;
 using System.IO;
 using NUnit.Framework;
 using TestTask.Pages;
+using OpenQA.Selenium.Firefox;
+using NUnit.Common;
+using NUnit.Framework.Interfaces;
+using System.Configuration;
+using System.Drawing.Imaging;
 
 namespace TestTask.Tests
 {
-    public class TestBase
+
+    [TestFixture]
+    public abstract class TestBase
     {
         protected IWebDriver Driver;
 
         protected BasePage Page;
 
-        static protected IWebDriver[] Browsers = Helpers.BrowsersList;
-
         protected string TestName;
 
-        public TestBase(IWebDriver driver)
+        static protected List<BasePage> Pages = new List<BasePage>();
+
+        [TestFixtureSetUp]
+        public void Init()
         {
-            Driver = driver;
+            Browsers.Init();
+            Driver = Browsers.Driver;
         }
 
-        //Добавляем сохранение скриншота
-        protected void UITest(Action action)
+        [TestFixtureTearDown]
+        public void TearDown()
         {
-            try
+            if (Driver != null)
             {
-                action();
+                Driver.Quit();
             }
-            catch (Exception e)
-            {
-                var shot = ((ITakesScreenshot)Driver).GetScreenshot();
-
-                Directory.CreateDirectory(@"C:\scrins");
-                shot.SaveAsFile(string.Format(@"C:\scrins\{0}.jpeg", TestName), System.Drawing.Imaging.ImageFormat.Jpeg);
-
-                
-
-                throw;
-            }
-        
         }
+
+        [TearDown]
+        public void OneTearDown()
+        {
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            {
+                Screenshot scr = ((ITakesScreenshot)Driver).GetScreenshot();
+                scr.SaveAsFile(string.Format(@"{0}/{1}.jpeg",
+                   ConfigurationManager.AppSettings["pathToScreens"],
+                   TestName), ImageFormat.Jpeg);
+            }
+        }
+
+
 
 
     }

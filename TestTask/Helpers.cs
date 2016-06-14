@@ -21,7 +21,6 @@ namespace TestTask
     static public class Helpers
     {
         //Папка с нашими драйверами
-        static private string pathToDrivers = @"C:\drivers";
 
         static public string GetElemStyle(IWebElement elem)
         {
@@ -40,9 +39,9 @@ namespace TestTask
        //Все драйверы, которые используем для тестов
        static public readonly IWebDriver[] BrowsersList = 
         {
-            new ChromeDriver(pathToDrivers),
-            new FirefoxDriver(),
-            new InternetExplorerDriver(pathToDrivers),
+           // new ChromeDriver(),
+          //  new FirefoxDriver(),
+            new InternetExplorerDriver(),
           //  new OperaDriver(),
           //  new SafariDriver()
         };

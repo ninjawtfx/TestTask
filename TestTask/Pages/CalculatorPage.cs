@@ -19,11 +19,13 @@ namespace TestTask.Pages
 
             url = "http://abbyy-ls.ru/doc-calculator";
 
-            driver.Navigate().GoToUrl(url);
-
-            PageFactory.InitElements(driver, this);
         }
 
+        public override void Navigate()
+        {
+            driver.Navigate().GoToUrl(url);
+            PageFactory.InitElements(driver, this);
+        }
 
         [FindsBy(How = How.XPath, Using = "//*[@id=\"calculator\"]/form/div[2]/div[1]/div[2]/fieldset/div[2]/select[1]")]
         public IWebElement FromLangSelector { get; set; }
@@ -31,6 +33,42 @@ namespace TestTask.Pages
         [FindsBy(How = How.Name, Using = "to-lang")]
         public IWebElement ToLangSelector { get; set; }
 
-        
+        public bool CheckFromLangSelectorEmpty()
+        {
+            SelectElement se = new SelectElement(FromLangSelector);
+            return se.Options.Any();
+        }
+
+        public bool CheckToLangSelectorEmpty()
+        {
+            SelectElement se = new SelectElement(ToLangSelector);
+            return se.Options.Any();
+        }
+
+        public string SelectFromLangOption(string text)
+        {
+            SelectElement se = new SelectElement(FromLangSelector);
+            string selectedText = se.Options.Where(x => x.Text.Contains(text)).FirstOrDefault().Text;
+            se.SelectByText(selectedText);
+            return selectedText;
+        }
+
+        public string SelectToLangOption(string text)
+        {
+            SelectElement se = new SelectElement(ToLangSelector);
+            string selectedText = se.Options.Where(x => x.Text.Contains(text)).FirstOrDefault().Text;
+            se.SelectByText(selectedText);
+            return selectedText;
+        }
+
+        public SelectElement GetFromLangAsSE()
+        {
+            return new SelectElement(FromLangSelector);
+        }
+
+        public SelectElement GetToLangAsSE()
+        {
+            return new SelectElement(ToLangSelector);
+        }
     }
 }

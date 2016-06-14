@@ -14,9 +14,10 @@ namespace TestTask.Pages
     {
         protected IWebDriver driver;
         protected string url;
-
+        protected WebDriverWait Wait;
         public Header HeaderPage;
 
+        public abstract void Navigate();
 
         public BasePage(IWebDriver driver)
         {

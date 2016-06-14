@@ -11,7 +11,7 @@ using OpenQA.Selenium;
 
 namespace TestTask.Tests
 {
-    [TestFixture, TestFixtureSource("Browsers")]
+    [TestFixture]
     public class SelectLangTests : TestBase
     {
         private CalculatorPage page;
@@ -19,53 +19,44 @@ namespace TestTask.Tests
         static private string[] fromLangTexts = new string[] { "Русск" };
         static private string[] toLangTexts = new string[] { "Англ" };
 
-        public SelectLangTests(IWebDriver driver)
-            :base(driver)
+        [SetUp]
+        public void InitBefore()
         {
             page = new CalculatorPage(Driver);
+            page.Navigate();
         }
+
         [Test]
         public void EmptySelectFromLangTest()
         {
-            UITest(() =>
-            {
-                TestName = "Проверка на пустой список с языка перевода";
-                Helpers.ValidateBoolTrue(Helpers.CheckListEmpty(page.FromLangSelector));
-            });
+            TestName = "Проверка на пустой список с языка перевода";
+            Assert.IsTrue(page.CheckFromLangSelectorEmpty());
         }
 
         [Test]
         public void EmptySelectToLangTest()
         {
-            UITest(() =>
-            {
-                TestName = "Проверка на пустой список с языка на который переводить";
-                Helpers.ValidateBoolTrue(Helpers.CheckListEmpty(page.ToLangSelector));
-            });
+            TestName = "Проверка на пустой список с языка на который переводить";
+            Assert.IsTrue(page.CheckToLangSelectorEmpty());
         }
 
         [Test, TestCaseSource("fromLangTexts")]
         public void SelectFromLangTest(string text)
         {
-            UITest(() =>
-            {
-                TestName = "Проверка на выбор языка с которого переводим";
-                Helpers.SelectItemInList(page.FromLangSelector, text);
-                Helpers.Sleep(1);
-                Helpers.ValidateBoolTrue(Helpers.CheckOptionSelected(page.FromLangSelector, text));
-            });
+            TestName = "Проверка на выбор языка с которого переводим";
+            string selectedText = page.SelectFromLangOption(text);
+            //Sleep(1);
+            Assert.AreEqual(selectedText, page.GetFromLangAsSE().SelectedOption.Text);
         }
 
         [Test, TestCaseSource("toLangTexts")]
         public void SelectToLangTest(string text)
         {
-            UITest(() =>
-            {
-                TestName = "Проверка на выбор языка на который переводим";
-                Helpers.SelectItemInList(page.ToLangSelector, text);
-                Helpers.Sleep(1);
-                Helpers.ValidateBoolTrue(Helpers.CheckOptionSelected(page.ToLangSelector, text));
-            });
+            TestName = "Проверка на выбор языка на который переводим";
+            string selectedText = page.SelectToLangOption(text);
+            //Sleep(1);
+            Assert.AreEqual(selectedText, page.GetFromLangAsSE().SelectedOption.Text);
+
         }
     }
 }

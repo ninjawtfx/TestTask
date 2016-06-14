@@ -7,6 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using System.Threading;
 using OpenQA.Selenium.Support.UI;
+using NUnit.Framework;
 
 namespace TestTask.Pages
 {
@@ -21,9 +22,14 @@ namespace TestTask.Pages
         {
             driver = browser;
             url = @"http://abbyy-ls.ru/";
+            Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+        }
+
+        public override void Navigate()
+        {
+            driver.Navigate().GoToUrl(url);
 
             PageFactory.InitElements(driver, this);
-            driver.Navigate().GoToUrl(url);
 
             sliderRelations.Add(FirstItemSlider, FirstImageSlider);
             sliderRelations.Add(SecondItemSlider, SecondImageSlider);
@@ -94,8 +100,9 @@ namespace TestTask.Pages
             if (key >= 0 && key < sliderRelations.Count)
             {
                 PushLeftItemSlider(sliderRelations.ElementAt(key).Key);
-                Thread.Sleep(3000);
-                Helpers.ValidateBoolTrue(sliderRelations.ElementAt(key).Value.Displayed);
+
+                Wait.Until(w => w.FindElement(By.TagName(sliderRelations.ElementAt(key).Value.TagName)).Displayed);
+                Assert.IsTrue((sliderRelations.ElementAt(key).Value.Displayed));
             }
         }
   

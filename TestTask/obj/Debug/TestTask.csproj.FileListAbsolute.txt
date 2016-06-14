@@ -11,3 +11,17 @@ c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\bin\Deb
 c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\obj\Debug\TestTask.dll
 c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\obj\Debug\TestTask.pdb
 c:\users\lexa\documents\visual studio 2013\Projects123\TestTask\TestTask\obj\Debug\TestTask.csprojResolveAssemblyReference.cache
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\chromedriver.exe
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\wires-0.6.0-win.exe
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\IEDriverServer.exe
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\TestTask.dll
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\TestTask.pdb
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\nunit.framework.dll
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\WebDriver.dll
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\WebDriver.Support.dll
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\nunit.framework.xml
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\WebDriver.xml
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\WebDriver.Support.xml
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\obj\Debug\TestTask.dll
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\obj\Debug\TestTask.pdb
+C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\TestTask.dll.config

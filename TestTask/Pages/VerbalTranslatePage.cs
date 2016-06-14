@@ -18,6 +18,10 @@ namespace TestTask.Pages
         {
             this.driver = browser;
             url = "http://abbyy-ls.ru/interpreting_offer";
+        }
+
+        public override void Navigate()
+        {
             driver.Navigate().GoToUrl(url);
             PageFactory.InitElements(driver, this);
         }
@@ -25,5 +29,23 @@ namespace TestTask.Pages
         [FindsBy(How = How.Id, Using = "edit-submitted-event-type")]
         public IWebElement SelectTypeOrganization { get; set; }
 
+        public bool CheckSelectTypeOrganizationEmpty()
+        {
+            SelectElement se = new SelectElement(SelectTypeOrganization);
+            return se.Options.Any();
+        }
+
+        public void SelectTypeOrganizationOptionByVal(string val)
+        {
+            SelectElement se = new SelectElement(SelectTypeOrganization);
+            se.SelectByValue(val);
+        }
+
+        public SelectElement GetTypeOrganizationAsSE()
+        {
+            return new SelectElement(SelectTypeOrganization);
+        }
+
+        
     }
 }
