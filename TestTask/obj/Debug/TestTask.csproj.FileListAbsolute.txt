@@ -25,3 +25,17 @@ C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\WebDr
 C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\obj\Debug\TestTask.dll
 C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\obj\Debug\TestTask.pdb
 C:\Users\lexa\Downloads\TestTask-master\TestTask-master\TestTask\bin\Debug\TestTask.dll.config
+C:\TestTask45\TestTask\bin\Debug\wires-0.6.0-win.exe
+C:\TestTask45\TestTask\bin\Debug\IEDriverServer.exe
+C:\TestTask45\TestTask\bin\Debug\TestTask.dll.config
+C:\TestTask45\TestTask\bin\Debug\TestTask.dll
+C:\TestTask45\TestTask\bin\Debug\TestTask.pdb
+C:\TestTask45\TestTask\bin\Debug\nunit.framework.dll
+C:\TestTask45\TestTask\bin\Debug\WebDriver.dll
+C:\TestTask45\TestTask\bin\Debug\WebDriver.Support.dll
+C:\TestTask45\TestTask\bin\Debug\nunit.framework.xml
+C:\TestTask45\TestTask\bin\Debug\WebDriver.xml
+C:\TestTask45\TestTask\bin\Debug\WebDriver.Support.xml
+C:\TestTask45\TestTask\obj\Debug\TestTask.csprojResolveAssemblyReference.cache
+C:\TestTask45\TestTask\obj\Debug\TestTask.dll
+C:\TestTask45\TestTask\obj\Debug\TestTask.pdb
