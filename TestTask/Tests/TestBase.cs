@@ -24,8 +24,6 @@ namespace TestTask.Tests
 
 		protected BasePage _page;
 
-		protected string _testName;
-
 		static protected List<BasePage> _pagesList = new List<BasePage>();
 
 		[TestFixtureSetUp]
@@ -52,7 +50,7 @@ namespace TestTask.Tests
 				Screenshot scr = ((ITakesScreenshot)_driver).GetScreenshot();
 				scr.SaveAsFile(string.Format(@"{0}/{1}.jpeg",
 				   ConfigurationManager.AppSettings["pathToScreens"],
-				   _testName), ImageFormat.Jpeg);
+				   TestContext.CurrentContext.Test.Name), ImageFormat.Jpeg);
 			}
 		}
 

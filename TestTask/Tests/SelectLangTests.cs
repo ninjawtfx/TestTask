@@ -16,8 +16,8 @@ namespace TestTask.Tests
 	{
 		private CalculatorPage page;
 
-		static private string[] fromLangTexts = new string[] { "Русск" };
-		static private string[] toLangTexts = new string[] { "Англ" };
+		static private string[] _fromLangTexts = new string[] { "Русск" };
+		static private string[] _toLangTexts = new string[] { "Англ" };
 
 		[SetUp]
 		public void InitBefore()
@@ -26,35 +26,30 @@ namespace TestTask.Tests
 			page.Navigate();
 		}
 
-		[Test]
+		[TestCase(TestName = "Проверка на пустой список с языка перевода")]
 		public void EmptySelectFromLangTest()
 		{
-			_testName = "Проверка на пустой список с языка перевода";
 			Assert.IsTrue(page.CheckFromLangSelectorEmpty());
 		}
 
-		[Test]
+		[TestCase(TestName = "Проверка на пустой список с языка на который переводить")]
 		public void EmptySelectToLangTest()
 		{
-			_testName = "Проверка на пустой список с языка на который переводить";
 			Assert.IsTrue(page.CheckToLangSelectorEmpty());
 		}
 
-		[Test, TestCaseSource("fromLangTexts")]
+		[TestCase(TestName = "Проверка на выбор языка с которого переводим"), TestCaseSource("_fromLangTexts")]
 		public void SelectFromLangTest(string text)
-		{
-			_testName = "Проверка на выбор языка с которого переводим";
+		{	
 			string selectedText = page.SelectFromLangOption(text);
 			Assert.AreEqual(selectedText, page.GetFromLangAsSE().SelectedOption.Text);
 		}
-
-		[Test, TestCaseSource("toLangTexts")]
+		
+		[TestCase(TestName = "Проверка на выбор языка на который переводим"), TestCaseSource("_toLangTexts")]
 		public void SelectToLangTest(string text)
 		{
-			_testName = "Проверка на выбор языка на который переводим";
 			string selectedText = page.SelectToLangOption(text);
 			Assert.AreEqual(selectedText, page.GetFromLangAsSE().SelectedOption.Text);
-
 		}
 	}
 }

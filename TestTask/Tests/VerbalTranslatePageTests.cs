@@ -20,17 +20,15 @@ namespace TestTask.Tests
 			_currentPage.Navigate();
 		}
 
-		[Test]
+		[TestCase(TestName = "Проверка, что лист с типом мероприятий не пустой")]
 		public void TypeOrgListNotEmptyTest()
 		{
-			_testName = "Проверка, что лист с типом мероприятий не пустой";
 			Assert.IsTrue(_currentPage.CheckSelectTypeOrganizationEmpty());
 		}
 
-		[Test]
+		[TestCase(TestName = "Проверка, что можно выбрать элемент с value 1")]
 		public void TypeOrgListCanSelectElemTest()
 		{
-			_testName = "Проверка, что можно выбрать элемент с value 1";
 			_currentPage.SelectTypeOrganizationOptionByVal("1");
 			Assert.AreEqual("деловые переговоры", _currentPage.GetTypeOrganizationAsSE().SelectedOption.Text);
 		}

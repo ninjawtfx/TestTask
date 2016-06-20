@@ -19,10 +19,9 @@ namespace TestTask.Tests
 			_currentPage.Navigate();
 		}
 
-		[Test]
+		[TestCase(TestName = "Нажатие на 5е меню слайдера")]
 		public void SliderPictureChangeTest()
 		{
-			_testName = "Нажатие на 5е меню слайдера";
 			_currentPage.ValidateSliderImageChange(5);
 		}
 

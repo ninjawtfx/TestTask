@@ -36,36 +36,28 @@ namespace TestTask.Tests
 			_currentPage.Navigate();
 		}
 
-		[Test]
+		[TestCase(TestName = "Проверка отображения телефона")]
 		public void PhoneDisplayTest()
 		{
-			//TestName = "Проверка отображения телефона";
 			Assert.IsTrue(_currentPage.HeaderPage.PhoneBox.Displayed);
-
 		}
 
-		[Test]
+		[TestCase(TestName = "Проверка того что телефон не пустой")]
 		public void PhoneBoxHasTextTest()
-		{
-			//TestName = "Проверка того что телефон не пустой";
+		{	
 			Assert.IsTrue(_currentPage.HeaderPage.PhoneBox.Text != string.Empty);
-
 		}
 
-		[Test]
+		[TestCase(TestName = "Проверка того что выбор языка отображается")]
 		public void LanguaBoxDisplayTest()
-		{
-
-			//TestName = "Проверка того что выбор языка отображается";
+		{	
 			Assert.IsTrue(_currentPage.HeaderPage.LanguaComboBox.Displayed);
 
 		}
 
-		[Test]
+		[TestCase(TestName = "Проверка, что для выбора есть 4 элемента")]
 		public void LanguaElementsTest()
 		{
-
-			//TestName = "Проверка, что для выбора есть 4 элемента";
 			_currentPage.HeaderPage.LanguaComboBox.Click();
 
 			Assert.IsTrue(_currentPage.HeaderPage.FirstElemDropBox.Displayed
