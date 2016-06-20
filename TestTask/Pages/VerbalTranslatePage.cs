@@ -10,42 +10,42 @@ using OpenQA.Selenium.Support.UI;
 
 namespace TestTask.Pages
 {
-    public class VerbalTranslatePage : BasePage
-    {
+	public class VerbalTranslatePage : BasePage
+	{
 
-        public VerbalTranslatePage(IWebDriver browser)
-            : base(browser)
-        {
-            this._driver = browser;
-            _url = "http://abbyy-ls.ru/interpreting_offer";
-        }
+		public VerbalTranslatePage(IWebDriver browser)
+			: base(browser)
+		{
+			this._driver = browser;
+			_url = "http://abbyy-ls.ru/interpreting_offer";
+		}
 
-        public override void Navigate()
-        {
-            _driver.Navigate().GoToUrl(_url);
-            PageFactory.InitElements(_driver, this);
-        }
+		public override void Navigate()
+		{
+			_driver.Navigate().GoToUrl(_url);
+			PageFactory.InitElements(_driver, this);
+		}
 
-        [FindsBy(How = How.Id, Using = "edit-submitted-event-type")]
-        public IWebElement SelectTypeOrganization { get; set; }
+		[FindsBy(How = How.Id, Using = "edit-submitted-event-type")]
+		public IWebElement SelectTypeOrganization { get; set; }
 
-        public bool CheckSelectTypeOrganizationEmpty()
-        {
-            SelectElement se = new SelectElement(SelectTypeOrganization);
-            return se.Options.Any();
-        }
+		public bool CheckSelectTypeOrganizationEmpty()
+		{
+			SelectElement se = new SelectElement(SelectTypeOrganization);
+			return se.Options.Any();
+		}
 
-        public void SelectTypeOrganizationOptionByVal(string val)
-        {
-            SelectElement se = new SelectElement(SelectTypeOrganization);
-            se.SelectByValue(val);
-        }
+		public void SelectTypeOrganizationOptionByVal(string val)
+		{
+			SelectElement se = new SelectElement(SelectTypeOrganization);
+			se.SelectByValue(val);
+		}
 
-        public SelectElement GetTypeOrganizationAsSE()
-        {
-            return new SelectElement(SelectTypeOrganization);
-        }
+		public SelectElement GetTypeOrganizationAsSE()
+		{
+			return new SelectElement(SelectTypeOrganization);
+		}
 
 
-    }
+	}
 }

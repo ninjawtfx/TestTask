@@ -17,47 +17,47 @@ using System.Drawing.Imaging;
 namespace TestTask.Tests
 {
 
-    [TestFixture]
-    public abstract class TestBase
-    {
-        protected IWebDriver _driver;
+	[TestFixture]
+	public abstract class TestBase
+	{
+		protected IWebDriver _driver;
 
-        protected BasePage _page;
+		protected BasePage _page;
 
-        protected string _testName;
+		protected string _testName;
 
-        static protected List<BasePage> _pagesList = new List<BasePage>();
+		static protected List<BasePage> _pagesList = new List<BasePage>();
 
-        [TestFixtureSetUp]
-        public void Init()
-        {
-            Browsers.Init();
-            _driver = Browsers.Driver;
-        }
+		[TestFixtureSetUp]
+		public void Init()
+		{
+			Browsers.Init();
+			_driver = Browsers.Driver;
+		}
 
-        [TestFixtureTearDown]
-        public void TearDown()
-        {
-            if (_driver != null)
-            {
-                _driver.Quit();
-            }
-        }
+		[TestFixtureTearDown]
+		public void TearDown()
+		{
+			if (_driver != null)
+			{
+				_driver.Quit();
+			}
+		}
 
-        [TearDown]
-        public void OneTearDown()
-        {
-            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
-            {
-                Screenshot scr = ((ITakesScreenshot)_driver).GetScreenshot();
-                scr.SaveAsFile(string.Format(@"{0}/{1}.jpeg",
-                   ConfigurationManager.AppSettings["pathToScreens"],
-                   _testName), ImageFormat.Jpeg);
-            }
-        }
-
-
+		[TearDown]
+		public void OneTearDown()
+		{
+			if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+			{
+				Screenshot scr = ((ITakesScreenshot)_driver).GetScreenshot();
+				scr.SaveAsFile(string.Format(@"{0}/{1}.jpeg",
+				   ConfigurationManager.AppSettings["pathToScreens"],
+				   _testName), ImageFormat.Jpeg);
+			}
+		}
 
 
-    }
+
+
+	}
 }
